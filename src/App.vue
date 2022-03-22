@@ -1,32 +1,44 @@
 <template>
-  <div id="app">
+  <div >
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div>
+        <h1 class="retangulo">ALUGAVUE</h1>
+      </div>
+      <div>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
-
 #nav {
+ color: blue;
+  background-color: yellow;
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: blue;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #282929;
+}
+.retangulo {
+  border: 3px solid blue;
+  padding: 2px 10px;
 }
 </style>
