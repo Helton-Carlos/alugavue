@@ -1,14 +1,20 @@
 <template>
-  <div >
+  <div>
     <div id="nav">
       <div>
-        <h1 class="retangulo">ALUGAVUE</h1>
+        <router-link to="/"><h1>AlugaVue</h1></router-link>
       </div>
       <div>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+        <router-link to="/casas">Casas</router-link>
+        <router-link to="/apartamentos">Apartamentos</router-link>
+        <router-link to="/kit-net">Kit-net</router-link>
+        <router-link to="/temporada">Temporada</router-link>
+        <router-link to="/login" class="btn-primary" style="color: #ffffff"
+          >Login</router-link
+        >
       </div>
     </div>
+    <hr id="nav" />
     <router-view />
   </div>
 </template>
@@ -20,25 +26,35 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+h1 {
+  padding-top: 20px;
+  color: #008f8f;
+  font-size: 32px;
+  margin-right: 50px;
+  font-style: italic;
+}
 #nav {
- color: blue;
-  background-color: yellow;
-  padding: 30px;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #nav a {
+  text-decoration: none;
   font-weight: bold;
-  color: blue;
+  margin-right: 20px;
+  color: rgb(44, 44, 44);
 }
 
 #nav a.router-link-exact-active {
-  color: #282929;
+  color: #008f8f;
+  border-top: 2px solid #008f8f;
 }
-.retangulo {
-  border: 3px solid blue;
-  padding: 2px 10px;
+.btn-primary {
+  background-color: #008f8f;
+  padding: 5px 15px;
+  border-radius: 4px;
 }
 </style>
