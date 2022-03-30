@@ -4,7 +4,7 @@
       <div>
         <div>
           <h1>A sua nova casa está aqui no AlugaVue.</h1>
-          <p style="margin-top:10px">Encontre Resultados de Qualidade agora! Obtenha Alugue Seu Apartamento. Mais de 100 Resultados. Resultados Relacionados.</p>
+          <p style="margin-top:10px">Encontre Resultados de Qualidade agora! Obtenha Alugue Seu Apartamento. Mais de 100 imoveis para você conhecer.</p>
         </div>
         <div class="flex" style="margin-top:10px">
           <img src="../assets/Logo-1.svg" alt="logo1" class="img-logo" />

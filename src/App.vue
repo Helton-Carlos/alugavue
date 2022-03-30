@@ -64,8 +64,12 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
-.container{
-width: 90%;
-margin: 0 auto;
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.coluna {
+  display: flex;
+  flex-direction: column;
 }
 </style>
