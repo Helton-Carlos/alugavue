@@ -14,14 +14,13 @@
         >
       </div>
     </div>
-    <hr id="nav" />
     <router-view />
   </div>
 </template>
 
 <style>
 * {
-  margin: 0;
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -56,5 +55,17 @@ h1 {
   background-color: #008f8f;
   padding: 5px 15px;
   border-radius: 4px;
+}
+.flex {
+  display: flex;
+}
+.flex-jb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container{
+width: 90%;
+margin: 0 auto;
 }
 </style>
