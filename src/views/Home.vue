@@ -6,16 +6,7 @@
         <h2><strong class="borda-baixa">Novidades</strong></h2>
       </div>
       <div>
-        <Card
-          :titulo="objCard"
-          :valor="objCard"
-          :codigo="objCard"
-          :id="objCard"
-          :disponivel="objCard"
-          :banheiro="objCard"
-          :quarto="objCard"
-          :garagem="objCard"
-        />
+        <Card :objeto="this.objCard" />
       </div>
     </div>
   </div>
@@ -24,15 +15,25 @@
 <script>
 import Main from "@/components/Main.vue";
 import Card from "@/components/Card.vue";
-
+import axios from "axios";
+//import { api } from "@/services/serviceApi.js";
 export default {
   name: "Home",
   components: {
     Main,
     Card,
   },
+  data() {
+    return {
+      objCard: [],
+    };
+  },
   methods: {
-    getCard() {},
+    getCard() {
+      axios.get("http://localhost:3000/novidades").then((res) => {
+        this.objCard = res.data;
+      });
+    },
   },
   created() {
     this.getCard();

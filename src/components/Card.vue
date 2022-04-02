@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+    {{objeto}}
       <div style="width: 400px">
         <img src="../assets/ap-01.png" alt="01" />
         <div class="coluna">
@@ -48,16 +49,7 @@
 import "material-icons/iconfont/material-icons.css";
 export default {
   name: "Main",
-  props: {
-    titulo: String,
-    valor: String,
-    banheiro: Number,
-    quarto: Number,
-    garagem: Boolean,
-    codigo: Number,
-    id: Number,
-    disponivel: Boolean,
-  },
+  props: ['objeto'],
 };
 </script>
 
