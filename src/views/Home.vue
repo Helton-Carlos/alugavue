@@ -8,6 +8,12 @@
       <div>
         <Card :objeto="this.objCard" />
       </div>
+       <div style="margin: 40px 0px">
+        <h2><strong class="borda-baixa">Busca</strong></h2>
+      </div>
+       <div>
+        <Pesquisa :objeto="this.objPesquisa" />
+      </div>
     </div>
   </div>
 </template>
@@ -15,23 +21,30 @@
 <script>
 import Main from "@/components/Main.vue";
 import Card from "@/components/Card.vue";
+import Pesquisa from "@/components/Pesquisa.vue";
 import axios from "axios";
 //import { api } from "@/services/serviceApi.js";
 export default {
   name: "Home",
   components: {
     Main,
+    Pesquisa,
     Card,
   },
   data() {
     return {
       objCard: [],
+      objPesquisa:[]
     };
   },
   methods: {
     getCard() {
-      axios.get("http://localhost:3000/novidades").then((res) => {
+      let baseUrl= "http://localhost:3000"
+      axios.get(baseUrl+"/novidades").then((res) => {
         this.objCard = res.data;
+      });
+       axios.get(baseUrl+"/bairros").then((res) => {
+        this.objPesquisa= res.data;
       });
     },
   },

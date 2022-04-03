@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <div>
-    {{objeto}}
-      <div style="width: 400px">
-        <img src="../assets/ap-01.png" alt="01" />
-        <div class="coluna">
-          <h3>Apartamento 1 quarto para alugar 45m²</h3>
-          <div class="flex-jb" style="padding: 5px 0px">
-            <p style="color: #008f8f"><strong>por R$ 1.100,00</strong></p>
-            <i>Código: 902165</i>
-          </div>
-          <div style="margin: 5px 0px">
-            <router-link to="/casas">Saiba mais</router-link>
-          </div>
+  <div class="flex-jb">
+    <div v-for="(objcard, index) in objeto.novidades" :key="index" >
+      <img :src="require(`../assets/${objcard.img}`)" :alt="objcard.id" style="width:90%"/>
+      <div class="coluna">
+        <h4>{{ objcard.titulo }}</h4>
+        <div class="flex" style="padding: 5px 0px">
+          <p style="color: #008f8f;margin-right:10px">
+            <strong>{{ objcard.valor }}</strong>
+          </p>
+          <i>Código: {{ objcard.codigo }}</i>
+        </div>
+        <div style="margin: 5px 0px">
+          <router-link to="/casas">Saiba mais</router-link>
         </div>
       </div>
     </div>
@@ -40,20 +39,16 @@
               </div>
             </div>
           </div>
-
-
-
 --></template>
 
 <script>
 import "material-icons/iconfont/material-icons.css";
 export default {
   name: "Main",
-  props: ['objeto'],
+  props: ["objeto"],
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 a {
   background-color: #008f8f;
