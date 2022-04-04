@@ -11,9 +11,9 @@
       <div style="margin: 40px 0px">
         <h2><strong class="borda-baixa">Busca</strong></h2>
       </div>
-      <div class="flex-wrap">
+      <div>
         <Pesquisa :objeto="this.objPesquisa" @resultPesquisa="pegarResultado" />
-        <Card :objeto="this.objCard" />
+        <Card :objeto="this.objCardPesquisa" :retornoFalso="retornoFalso" />
       </div>
     </div>
   </div>
@@ -35,14 +35,16 @@ export default {
   data() {
     return {
       objCard: [],
+      retornoFalso: "",
       objPesquisa: [],
+      objCardPesquisa: [],
     };
   },
   methods: {
     getCard() {
       let baseUrl = "http://localhost:3000";
       axios.get(baseUrl + "/novidades").then((res) => {
-        this.objCard = res.data;
+        this.objCard = res.data.novidades;
       });
       axios.get(baseUrl + "/bairros").then((res) => {
         this.objPesquisa = res.data;
@@ -54,13 +56,13 @@ export default {
         let obj = res.data.novidades;
         for (let i = 0; i < obj.length; i++) {
           if (parm.bairro === obj[i].endereco[0].bairro) {
-            console.log(obj[i]);
-          }
-          if (parm.bairro === obj[i].valor) {
-            console.log(obj[i]);
-          }
-          if (parm.tipo === obj[i].tipo) {
-            console.log(obj[i]);
+            this.objCardPesquisa.push(obj[i]);
+            if (parm.bairro === obj[i].valor) {
+              console.log(obj[i]);
+            }
+            if (parm.tipo === obj[i].tipo) {
+              console.log(obj[i]);
+            }
           }
         }
       });
