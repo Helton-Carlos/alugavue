@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-jb">
+  <div class="flex-wrap" >
     {{ retornoFalso }}
-    <div v-for="(objcard, index) in objeto" :key="index">
+    <div v-for="(objcard, index) in objeto" :key="index" style="margin-bottom:10px">
       <img
         :src="require(`../assets/${objcard.img}`)"
         :alt="objcard.id"
-        style="width: 90%"
+        style="width: 95%"
       />
       <div class="coluna">
         <h4>{{ objcard.titulo }}</h4>
@@ -21,8 +21,8 @@
       </div>
     </div>
   </div>
-
-  <!--  <div class="flex">
+  <!--  
+        <div class="flex">
             <div class="flex" style="padding-right: 15px">
               <span class="material-icons-outlined">home</span>
               <div style="padding-top: 2px">
@@ -45,7 +45,8 @@
               </div>
             </div>
           </div>
---></template>
+-->
+</template>
 
 <script>
 import "material-icons/iconfont/material-icons.css";

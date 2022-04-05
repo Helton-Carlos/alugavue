@@ -52,17 +52,37 @@ export default {
     },
     pegarResultado(parm) {
       let baseUrl = "http://localhost:3000";
-      axios.get(baseUrl + "/novidades").then((res) => {
-        let obj = res.data.novidades;
+      this.objCardPesquisa = [];
+
+      axios.get(baseUrl + "/imoveis").then((res) => {
+        let obj = res.data.imoveis;
         for (let i = 0; i < obj.length; i++) {
           if (parm.bairro === obj[i].endereco[0].bairro) {
+            let valor;
+            if (parm.valor === "0 a 500,00") {
+              valor = 500;
+            }
+            if (parm.valor === "500,00 a 1.500") {
+              valor = 1500;
+            }
+            if (parm.valor === "1.500 a 2.000") {
+              valor = 2000;
+            }
+            let tiravalor = obj[i].valor.replace("R$", "");
+            let converteInt = parseInt(tiravalor.replace(".", ""));
+            if (valor >= converteInt) {
+              if (parm.tipo === obj[i].tipo) {
+                this.objCardPesquisa.push(obj[i]);
+              } 
+            } 
+          }
+          if (parm.bairro === "" || parm.valor === "" || parm.tipo === "") {
             this.objCardPesquisa.push(obj[i]);
-            if (parm.bairro === obj[i].valor) {
-              console.log(obj[i]);
-            }
-            if (parm.tipo === obj[i].tipo) {
-              console.log(obj[i]);
-            }
+          }
+          if (this.objCardPesquisa.length === 0) {
+            this.retornoFalso = "Não possui itens";
+          }else{
+            this.retornoFalso = null
           }
         }
       });
