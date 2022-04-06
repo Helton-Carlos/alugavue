@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <Main />
     <div class="container">
       <div style="margin: 40px 0px">
