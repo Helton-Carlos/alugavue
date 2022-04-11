@@ -4,16 +4,16 @@
     <div class="container">
       <div style="margin: 40px 0px">
         <h2><strong class="borda-baixa">Novidades</strong></h2>
-      </div>
-      <div>
-        <Card :objeto="this.objCard" />
+        <Card :objeto="this.objCard"  style="margin: 40px 0px" />
       </div>
       <div style="margin: 40px 0px">
         <h2><strong class="borda-baixa">Busca</strong></h2>
-      </div>
-      <div>
-        <Pesquisa :objeto="this.objPesquisa" @resultPesquisa="pegarResultado" />
+        <Pesquisa :objeto="this.objPesquisa" @resultPesquisa="pegarResultado"  style="margin: 40px 0px" />
         <Card :objeto="this.objCardPesquisa" :retornoFalso="retornoFalso" />
+      </div>
+       <div style="margin: 40px 0px">
+        <h2><strong class="borda-baixa">Fale Conosco</strong></h2>
+       
       </div>
     </div>
   </div>
@@ -53,7 +53,6 @@ export default {
     pegarResultado(parm) {
       let baseUrl = "http://localhost:3000";
       this.objCardPesquisa = [];
-
       axios.get(baseUrl + "/imoveis").then((res) => {
         let obj = res.data.imoveis;
         for (let i = 0; i < obj.length; i++) {
@@ -73,16 +72,16 @@ export default {
             if (valor >= converteInt) {
               if (parm.tipo === obj[i].tipo) {
                 this.objCardPesquisa.push(obj[i]);
-              } 
-            } 
+              }
+            }
           }
           if (parm.bairro === "" || parm.valor === "" || parm.tipo === "") {
             this.objCardPesquisa.push(obj[i]);
           }
           if (this.objCardPesquisa.length === 0) {
             this.retornoFalso = "Não possui itens";
-          }else{
-            this.retornoFalso = null
+          } else {
+            this.retornoFalso = null;
           }
         }
       });
