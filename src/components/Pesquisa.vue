@@ -1,5 +1,5 @@
 <template>
-  <div class="box flex">
+  <div class="box">
     <select v-model="bairro">
       <option disabled value="">Escolha o Bairro</option>
       <option v-for="bairros in objeto.bairros" :key="bairros">{{ bairros }}</option>
@@ -47,6 +47,7 @@ export default {
 <style scoped>
 .box {
   width: 250px;
+  display: flex;
 }
 select {
   width: 250px;
@@ -70,5 +71,15 @@ button {
 button:hover {
   background: #043636;
   transition: 1s;
+}
+@media screen and (max-width: 800px) {
+  .box {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  select,
+  button {
+    width: 100%;
+  }
 }
 </style>

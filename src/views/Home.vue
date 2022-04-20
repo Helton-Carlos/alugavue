@@ -13,7 +13,7 @@
       </div>
        <div style="margin: 40px 0px">
         <h2><strong class="borda-baixa">Fale Conosco</strong></h2>
-       
+        <Formulario />
       </div>
     </div>
   </div>
@@ -24,6 +24,7 @@ import Main from "@/components/Main.vue";
 import Card from "@/components/Card.vue";
 import Pesquisa from "@/components/Pesquisa.vue";
 import axios from "axios";
+import Formulario from '../components/Formulario.vue';
 //import { api } from "@/services/serviceApi.js";
 export default {
   name: "Home",
@@ -31,6 +32,7 @@ export default {
     Main,
     Pesquisa,
     Card,
+    Formulario,
   },
   data() {
     return {
